@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        main{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        .login img{
+            width: 20px;
+        }
+       
+        .login{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* gap: 20px; */
+        }
+         .login button{
+            font-size: 20px;
+            width: 400px;
+            padding: 10px;
+            border-radius:  25px;
+            margin-bottom: 25px;
+            border: 1px solid rgb(210, 206, 206);
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        h1{
+            font-size: 80px;
+            /* border: 1px solid; */
+        }
+        h3{
+            font-size: 40px;
+            /* border: 1px solid; */
+        }
+        .logo{
+            height: 100vh;
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="logo">
+            <img src="https://img.freepik.com/premium-vector/twitter-new-x-logo-design-vector_1340851-70.jpg?semt=ais_hybrid&w=740&q=80" alt="">
+        </div>
+
+
+
+        <div class="login">
+            <h1>Happening now</h1>
+            <h3>Join today.</h3>
+            <button><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/500px-Google_%22G%22_logo.svg.png" alt=""> Sign in with Google</button>
+            <button><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt=""> Sign up with Apple</button>
+        </div>
+    </main>
+    <footer></footer>
+
+</body>
+
+</html>
