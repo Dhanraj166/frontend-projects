@@ -6,56 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
         }
-        main{
+
+        main {
             display: grid;
             grid-template-columns: 1056px 1fr;
         }
-        .login img{
+
+        .login img {
             width: 20px;
         }
-       
-        .login{
+
+        .login {
             display: flex;
             flex-direction: column;
             justify-content: center;
             font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            /* gap: 20px; */
+            margin-left: 35px;
         }
-         .login button{
-            font-size: 20px;
+
+        .login button {
+            font-size: 15px;
             width: 300px;
             padding: 10px;
-            border-radius:  25px;
-            margin-bottom: 25px;
-            border: 1px solid rgb(210, 206, 206);
+            border-radius: 25px;
+            margin-bottom: 15px;
+            border: 1px solid rgb(219, 219, 219);
             display: flex;
             justify-content: center;
             gap: 15px;
+            background-color: white;
+
         }
-        h1{
+
+        h1 {
             font-size: 70px;
-            padding: 42px 20px;
-            /* border: 1px solid; */
+
         }
-        h3{
+
+        h3 {
             font-size: 40px;
-            padding: 0  0 36px 20px;
-            /* border: 1px solid; */
+
         }
-        .logo{
+
+        .logo {
             height: 100vh;
             border: 1px solid;
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        .logo img{
+
+        .logo img {
             height: 436px;
+        }
+        nav{
+            font-size: 11px;
+            width: 300px;
+        }
+        nav a{
+            text-decoration: none;
+            color: rgb(38, 171, 215);
         }
     </style>
 </head>
@@ -63,7 +78,8 @@
 <body>
     <main>
         <div class="logo">
-            <img src="https://img.freepik.com/premium-vector/twitter-new-x-logo-design-vector_1340851-70.jpg?semt=ais_hybrid&w=740&q=80" alt="">
+            <img src="https://img.freepik.com/premium-vector/twitter-new-x-logo-design-vector_1340851-70.jpg?semt=ais_hybrid&w=740&q=80"
+                alt="">
         </div>
 
 
@@ -71,8 +87,22 @@
         <div class="login">
             <h1>Happening now</h1>
             <h3>Join today.</h3>
-            <button><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/500px-Google_%22G%22_logo.svg.png" alt=""> Sign in with Google</button>
-            <button><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt=""> Sign up with Apple</button>
+            <button><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/500px-Google_%22G%22_logo.svg.png"
+                    alt=""> Sign in with Google</button>
+            <button><img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" alt=""> Sign up
+                with Apple</button>
+            <p>OR</p>
+            <button style="font-weight: bold;background-color: black;color: white;">Create account</button>
+            <nav>
+                <p>By signing up, you agree to thea <a href="">Terms of Service</a>and <a href="">Privacy
+                        Policy</a>,including <a href="">Cookie Use.</a></p>
+            </nav>
+            <p>Already have an account?</p>
+            <button style="font-weight: bold;">Sign in</button>
+            <button><img
+                    src="data:image/png;base64,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"
+                    alt="">Get Grok</button>
         </div>
     </main>
     <footer></footer>
