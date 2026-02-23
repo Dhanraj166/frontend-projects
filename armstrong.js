@@ -3,7 +3,7 @@ let count=0;
 let ams=0;
 while(n>0){
     n=Math.floor(n/10);
-    count++
+    count+=1
 }
 while(n>0){
     let digit=n%10;
