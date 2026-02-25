@@ -1,14 +1,15 @@
-const marks=[80,76,32,90,34]
-// let i=0;
-// let count=0;
-// while(marks[i]>5){
-//     for(i<35) {
-//         count++
+const marks = [80, 76, 32, 90, 34];
+// let i = 0;
+// let count = 0;
+
+// while (i < marks.length) {
+//     if (marks[i] < 35) {
+//         count++;
 //     }
-//     i++
-    
+//     i++;
 // }
-// console.log(count)
+
+// console.log(count);
 
 
 // length - totel element in the array
@@ -114,3 +115,4 @@ console.log(joinedArr)
 let joined = [...firstArr,...secondArr]
 
 console.log(joined)
+
