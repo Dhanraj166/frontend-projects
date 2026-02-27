@@ -4,14 +4,18 @@
 
 
 
+// print how many times each num appears
+const arr=[1,2,3,2,1,2];
 
+for(i=0;i<arr.length;i++){  
+    let count=0;
 
-const arr=["cat", "elephant", "dog", "lion"]
-let len=arr[0]
+    for(j=i;j<arr.length;j++){
 
-for (i=0;i<arr.length;i++){ 
-    if(len.length<arr[i].length){
-        len=arr[i]
-    }  
+        if(arr[i]==arr[j]){
+           count++
+        } 
+
+    }
+    console.log(arr[i],"appears",count,"times");
 }
-console.log(len)        
