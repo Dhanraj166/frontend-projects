@@ -1,39 +1,77 @@
 
 let arr = [1, 2, 3];
 
-// for each method
-arr.forEach(num => {
+//                       forEach method
+
+const numbers = [1, 2, 3, 4];
+
+numbers.forEach(function (num) {
   console.log(num);
 });
 
-// map method
-let result = arr.map(num => num * 2);
-console.log(result);
+// Add all numbers (sum)
+let sum = 0;
+const nums = [10, 20, 30];
 
-// filter method
-let even = arr.filter(num => num % 2 === 0);
-console.log(even);
+nums.forEach(num => {
+  sum += num;
+});
 
-// reduce method
-let sum = arr.reduce((acc, num) => acc + num, 0);
-console.log(sum);
+console.log(sum); // 60
 
-// find method
-let found = arr.find(num => num > 2);
-console.log(found);
 
-// some method
-let hasEven = arr.some(num => num % 2 === 0);
-console.log(hasEven);
+// Modify existing array
+arr.forEach((value, index) => {
+  arr[index] = value * 2;
+});
 
-// every method
-let allPositive = arr.every(num => num > 0);
-console.log(allPositive);
+console.log(arr); // [2, 4, 6]
 
-// includes method
-let includesTwo = arr.includes(2);
-console.log(includesTwo);
+// Access index
+const names = ["Ram", "Sam", "Raj"];
 
-// indexOf method
-let index = arr.indexOf(2);
-console.log(index);
+names.forEach((name, i) => {
+  console.log(i, name);
+});
+
+
+
+//                        Map method               --> Original array is not changed   ;   Always returns a new array
+
+// Double each number
+const numbers1 = [1, 2, 3, 4];
+
+const doubled = numbers1.map(num => num * 2);
+
+console.log(doubled); // [2, 4, 6, 8]
+
+
+// Convert string to uppercase
+const names1 = ["kathir", "hari", "priya"];
+
+const upper = names1.map(new1 => new1.toUpperCase());
+// const upperNames = names1.map(name => name.toUpperCase());
+
+console.log(upper);
+
+
+// Add 5 to each value
+const marks = [60, 70, 80];
+const add5 = marks.map(newmark => newmark + 5)
+console.log(add5);
+
+
+// Extract values from objects
+const students = [{ name: "Ram", age: 20 },{ name: "Sam", age: 22 }];
+
+const namesOnly = students.map(student => student.name);
+
+console.log(namesOnly); // ["Ram", "Sam"]
+
+
+// add index value
+const arr2 = [10, 20, 30];
+
+const result = arr2.map((value, index) => value + index);
+
+console.log(result); // [10, 21, 32]
