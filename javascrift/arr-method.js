@@ -58,7 +58,7 @@ console.log(upper);
 // Add 5 to each value
 const marks = [60, 70, 80];
 const add5 = marks.map(newmark => newmark + 5)
-console.log(add5);
+console.log(add5);    //[ 65, 75, 85 ]
 
 
 // Extract values from objects
@@ -66,7 +66,7 @@ const students = [{ name: "Ram", age: 20 },{ name: "Sam", age: 22 }];
 
 const namesOnly = students.map(student => student.name);
 
-console.log(namesOnly); // ["Ram", "Sam"]
+console.log(namesOnly);   // ["Ram", "Sam"]
 
 
 // add index value
