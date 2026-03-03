@@ -45,8 +45,12 @@ console.log(marks);
 // parameter 1  => starting index 
 // parameter 2  => no of elelment to be deleted from the starting index
 // parameter 3 or more  => values to be inserted from the starting index
+
+
 marks.splice(2,1)        //(starting index , delete the second element )
 console.log(marks);
+
+
 
 marks.splice(2,1,54)        //(starting index , how many element remove, insert the element)
 console.log(marks);
@@ -60,24 +64,21 @@ console.log(marks);
 
 //ending index not included
 
-console.log(array.slice(1, 2));
+console.log(marks.slice(1, 2));
 
 
 
 //reverse
 
-array.reverse();
+marks.reverse();
 
-console.log(array);
+console.log(marks);
 
 
 
 //join - converts array to  string
 
-
-
-let str = array.join();
-
+let str = marks.join();
 console.log(str);
 
 
@@ -85,34 +86,27 @@ console.log(str);
 //split - converts string to array
 
 let str3 = "g,t,r,e";
-
 let arr3 = str3.split(",");
-
 console.log(arr3);
-
 
 
 //concat and spread operator
 
 let firstArr = [1, 2, 3];
-
 let secondArr = [4, 5, 6];
 
 
 
 let joinedArr = [firstArr,secondArr]
-
 console.log(joinedArr)
 
 
 
-joinedArr = firstArr.concat(secondArr)
-
+ joinedArr = firstArr.concat(secondArr)
 console.log(joinedArr)
 
 
 
 let joined = [...firstArr,...secondArr]
-
 console.log(joined)
 
