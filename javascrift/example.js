@@ -40,13 +40,14 @@
 
 
 // reverse order
-// const arr = [1, 2, 3, 4, 5];
-// let rev=0;
-// for(i=5;i>arr.length;i--){
-//     console.log(i);
+const arr = [1, 2, 3, 4, 5];
+let rev=[];
+for(i=arr.length-1;i>=0;i--){
+    rev.push(arr[i])
+}
+console.log(rev);
 
 
-// }
 
 
 // //Check if Number Exists
@@ -128,71 +129,71 @@
 // console.log(arr);
 
 // print how many times each num appears
-const arr=[1,2,3,2,1,2];
+// const arr=[1,2,3,2,1,2];
 
-for(i=0;i<arr.length;i++){  
-    let count=0;
+// for(i=0;i<arr.length;i++){  
+//     let count=0;
 
-    for(j=i;j<arr.length;j++){
+//     for(j=i;j<arr.length;j++){
 
-        if(arr[i]==arr[j]){
-           count++
-        } 
+//         if(arr[i]==arr[j]){
+//            count++
+//         } 
 
-    }
-    console.log(arr[i],"appears",count,"times");
-}
+//     }
+//     console.log(arr[i],"appears",count,"times");
+// }
 
 
 
-const names = ["kathir","dhanraj","ebinesher","hariharan","balamurugan","priya","jayasutha","vinayagam"];
+// const names = ["kathir","dhanraj","ebinesher","hariharan","balamurugan","priya","jayasutha","vinayagam"];
 
-// result arrays
-const fullUpperArr = [];
-const firstUpperArr = [];
-const middleUpperArr = [];
-const lastUpperArr = [];
+// // result arrays
+// const fullUpperArr = [];
+// const firstUpperArr = [];
+// const middleUpperArr = [];
+// const lastUpperArr = [];
 
-// functions
-function fullUpper(name) {
-    return name.toUpperCase();
-}
+// // functions
+// function fullUpper(name) {
+//     return name.toUpperCase();
+// }
 
-function firstUpper(name) {
-    return name.charAt(0).toUpperCase() + name.slice(1);
-}
+// function firstUpper(name) {
+//     return name.charAt(0).toUpperCase() + name.slice(1);
+// }
 
-function middleUpper(name) {
-    let len = name.length;
-    let index = len % 2 === 0 ? len / 2 : Math.floor(len / 2);
+// function middleUpper(name) {
+//     let len = name.length;
+//     let index = len % 2 === 0 ? len / 2 : Math.floor(len / 2);
 
-    return (
-        name.slice(0, index) +
-        name.charAt(index).toUpperCase() +
-        name.slice(index + 1)
-    );
-}
+//     return (
+//         name.slice(0, index) +
+//         name.charAt(index).toUpperCase() +
+//         name.slice(index + 1)
+//     );
+// }
 
-function lastUpper(name) {
-    let lastIndex = name.length - 1;
-    return (
-        name.slice(0, lastIndex) +
-        name.charAt(lastIndex).toUpperCase()
-    );
-}
+// function lastUpper(name) {
+//     let lastIndex = name.length - 1;
+//     return (
+//         name.slice(0, lastIndex) +
+//         name.charAt(lastIndex).toUpperCase()
+//     );
+// }
 
-// loop
-for (let i = 0; i < names.length; i++) {
-    fullUpperArr.push(fullUpper(names[i]));
-    firstUpperArr.push(firstUpper(names[i]));
-    middleUpperArr.push(middleUpper(names[i]));
-    lastUpperArr.push(lastUpper(names[i]));
-}
+// // loop
+// for (let i = 0; i < names.length; i++) {
+//     fullUpperArr.push(fullUpper(names[i]));
+//     firstUpperArr.push(firstUpper(names[i]));
+//     middleUpperArr.push(middleUpper(names[i]));
+//     lastUpperArr.push(lastUpper(names[i]));
+// }
 
-// output
-console.log("Full Upper   :", fullUpperArr);
-console.log("First Upper  :", firstUpperArr);
-console.log("Middle Upper :", middleUpperArr);
-console.log("Last Upper   :", lastUpperArr);
+// // output
+// console.log("Full Upper   :", fullUpperArr);
+// console.log("First Upper  :", firstUpperArr);
+// console.log("Middle Upper :", middleUpperArr);
+// console.log("Last Upper   :", lastUpperArr);
 
 

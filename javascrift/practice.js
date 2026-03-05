@@ -44,7 +44,7 @@ console.log(pattern)
 
 
 for(i=1;i<= 5;i++){
-    pattern1 = "";
+    let pattern1 = "";
     for(j=1;j<=i;j++){
         pattern1 += "*"
     }
@@ -56,9 +56,11 @@ console.log("------------")
 const arr1 = [1,2,2,3,4,1];
 
 for(i=0;i<arr1.length;i++){
-    for(j=0;j<arr1.length;j++){
+  
+    for(j=i+1;j<arr1.length;j++){
+        
         if(arr1[i]==arr1[j]){
-           arr1.splice(arr[j].length,1)
+           arr1.splice(j,1)
            break
         }
     }
@@ -66,6 +68,32 @@ for(i=0;i<arr1.length;i++){
 console.log(arr1);
 
 
+// number pattern
+for(let i=1;i<=5;i++){
+    let pattern2 = "";
+    for(j=1;j<=i;j++){
+        pattern2+=i
+    }
+    console.log(pattern2)
+}
+
+
+// swap two number without third variable
+let a = 5;
+let b = 8;
+a = a + b;
+b = a - b;
+a = a - b;
+console.log("a=",a,";","b=",b);
+
+
+// Move all zeros to the end
+let move = [0,1,0,3,12];
+for(i=0;i<arr.length;i++){
+    if(arr[i]==0){
+        
+    }
+}
 
 
 
