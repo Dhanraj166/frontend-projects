@@ -58,5 +58,35 @@ if (index >= 0) {
   console.log("Element not found");
 }
 
-
 console.log(" <-----------------> ");
+
+
+// const person = {
+//   name1:"dhanraj",
+//   age:23,
+//   role:"developer",
+
+// }
+
+// person = {
+ 
+//   name1:"vijay"
+// }
+
+// console.log(person);
+
+
+
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 5, c: 4 };
+
+
+
+const mergedObj = { ...obj1, ...obj2 };
+
+console.log(mergedObj);
+
+
+const a=10;
+a=20;
+console.log(a);
