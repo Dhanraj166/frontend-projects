@@ -35,3 +35,6 @@
 //     b++
 // }
 
+let str = "hello";
+let result=str.replace(0,"H") 
+console.log(result);
