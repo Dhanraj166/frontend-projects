@@ -5,7 +5,47 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Document</title>
-   
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         padding: 20px;
+      }
+
+      div {
+         margin-bottom: 10px;
+      }
+
+      button {
+         padding: 8px 15px;
+         cursor: pointer;
+      }
+
+      #Total {
+         color: blue;
+         font-weight: bold;
+      }
+
+      .good {
+         color: green;
+         font-weight: bold;
+      }
+
+      .average {
+         color: orange;
+         font-weight: bold;
+      }
+
+      .poor {
+         color: red;
+         font-weight: bold;
+      }
+
+      #Grade {
+         font-size: 22px;
+         margin-top: 10px;
+      }
+   </style>
+
 </head>
 
 <body>
@@ -60,6 +100,11 @@
          document.getElementById("Total").innerHTML = "Total : " + total;
          document.getElementById("Average").innerHTML = "Average : " + average;
          document.getElementById("Grade").innerHTML = "Grade : " + grade;
+
+
+         const mapla = document.querySelector("div:last-child")
+         console.log(mapla.innerText);
+         
 
       }
 
