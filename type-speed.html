@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Typing Speed Test</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    #text-input {
+      margin-bottom: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 10px 0;
+    }
+    button {
+      padding: 6px 12px;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h3 id="text-input"></h3>
+  <input id="user-input" type="text" placeholder="Type here..." disabled />
+
+  <br />
+  <button id="startBtn">Start</button>
+  <button id="checkBtn" disabled>Check</button>
+
+  <p id="result"></p>
+
+  <script>
+    const jokes = [
+      "I type so fast even my keyboard gets confused",
+      "Autocorrect is my best friend and worst enemy",
+      "My typing speed is fast but accuracy is missing",
+      "I type 100 words per minute but all wrong"
+    ];
+
+    const textInput = document.getElementById("text-input");
+    const userInput = document.getElementById("user-input");
+    const result = document.getElementById("result");
+    const startBtn = document.getElementById("startBtn");
+    const checkBtn = document.getElementById("checkBtn");
+
+    let startTime = 0;
+    let randomJoke = "";
+
+    // START TYPING
+    startBtn.addEventListener("click", () => {
+      randomJoke = jokes[Math.floor(Math.random() * jokes.length)];
+      textInput.innerText = randomJoke;
+
+      userInput.value = "";
+      userInput.disabled = false;
+      userInput.focus();
+
+      checkBtn.disabled = false;
+      result.innerText = "Typing started...";
+
+      startTime = Date.now();
+    });
+
+    // CHECK RESULT
+    checkBtn.addEventListener("click", () => {
+      if (!startTime) return;
+
+      const endTime = Date.now();
+      const timeTaken = (endTime - startTime) / 1000;
+
+      const typedText = userInput.value.trim();
+      const jokeText = randomJoke.trim();
+
+      const typedWords = typedText.split(/\s+/).length;
+      const wpm = Math.round((typedWords / timeTaken) * 60);
+
+      // Accuracy calculation
+      let correctChars = 0;
+      for (let i = 0; i < typedText.length; i++) {
+        if (typedText[i] === jokeText[i]) {
+          correctChars++;
+        }
+      }
+
+      const accuracy = Math.round(
+        (correctChars / jokeText.length) * 100
+      );
+
+      result.innerText = `
+        WPM: ${wpm}
+        | Accuracy: ${accuracy}%
+        | Time: ${timeTaken.toFixed(2)} sec
+      `;
+
+      userInput.disabled = true;
+      checkBtn.disabled = true;
+      startTime = 0;
+    });
+  </script>
+
+</body>
+</html>
