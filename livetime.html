@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>createElement Demo</title>
+</head>
+
+<body>
+    
+    <div id="container">
+        <h1 id="heading"></h1>
+        <input id="inputText" type="text">
+        <p id="para">------------------------</p>
+    </div>
+
+    <script>
+        const div = document.getElementById("container")
+        const para = document.getElementById("para")
+        const textInput = document.getElementById("inputText")
+
+        const btn = document.createElement("button")
+        btn.type = "submit";
+        btn.innerText = "click"
+        div.insertBefore(btn,para)
+
+
+        const newh3 = document.createElement("h3");
+        newh3.textContent = "Vanakkam 'DA' Pulla"
+        textInput.insertAdjacentElement("afterend", newh3)
+
+
+        const add3 = document.createElement("a")
+        add3.textContent = "link-------"
+        add3.href = "#";
+        div.insertBefore(add3 ,div.children[2])
+
+        btn.addEventListener("click" , ()=>{
+            add3.remove();
+        })
+
+    </script>
+</body>
+
+</html>
