@@ -151,11 +151,76 @@ function targetNumber(arr,target){
   for(let i=0;i<=arr.length;i++){
     for(let j=i+1;j<arr.length;j++){
        if((arr[i] + arr[j]) == target){
-         console.log(i,j);
+         return[i,j];
        }
     }
   }
 }
 console.log(targetNumber([2, 7, 5, 4], 9));
+
+
+// – count occcerance each string;
+function occurrence(str){
+  let value = {};
+  for(let i = 0;i<str.length;i++){
+    
+    if ( value[str[i]]) continue;
+    let count = 1;
+    for(let j=i+1;j<str.length;j++){
+      if(str[i] == str[j]){
+        count++
+      }
+    }
+    value[str[i]] = true;
+    console.log(str[i]+":"+count);
+  }
+}
+
+occurrence("banana");
+
+
+
+// Remove Duplicate from an array
+function duplicate(arr){
+  for(let i=0;i<arr.length;i++){
+    for(let j=i+1;j<arr.length;j++){
+      if(arr[i] == arr[j]){
+        arr.splice(j,1);
+      }
+    }
+  }
+  return arr;
+}
+console.log(duplicate([1,2,2,3,1,4,3]));
+
+
+
+// Find all duplicates in an array                
+function duplicateFind(arr){
+  const result = [];
+  
+  for(let i= 0;i<arr.length;i++){
+    for(let j=i+1;j<arr.length;j++){
+      if(arr[i] == arr[j]){
+        result.push(arr[i])
+      }
+    }
+  }
+  return result;
+}
+console.log(duplicateFind([4, 3, 2, 7, 8, 2, 3, 1]));
+
+
+// find Anagram
+function anagram(a,b){
+  if(a.length !== b.length) {return false};
+  let compare = {};
+  
+  
+}
+console.log(anagram("silent","listen"));
+
+
+
 
 

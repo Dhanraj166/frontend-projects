@@ -8,12 +8,16 @@
 </head>
 
 <body>
+    <input id="userInput" type="text">
     <button id="button">Click Me</button>
     <script>
-        const button = document.getElementById("button");
-        button.addEventListener("click", () => {
-            button.disabled = true
+        const userInput = document.getElementById("userInput")
+        const btn = document.getElementById("button");
+        btn.disabled = true;
+        userInput.addEventListener("input", () => {
+            btn.disabled = false;
         })
+
     </script>
 </body>
 
