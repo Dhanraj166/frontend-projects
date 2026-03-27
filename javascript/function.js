@@ -147,12 +147,12 @@ console.log(flattenArray([[1, 2], [3, 4], [5]]));
 
 
 // Find the two numbers in an array that sum to a target
-function targetNumber(arr,target){
-  for(let i=0;i<=arr.length;i++){
-    for(let j=i+1;j<arr.length;j++){
-       if((arr[i] + arr[j]) == target){
-         return[i,j];
-       }
+function targetNumber(arr, target) {
+  for (let i = 0; i <= arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if ((arr[i] + arr[j]) == target) {
+        return [i, j];
+      }
     }
   }
 }
@@ -160,19 +160,19 @@ console.log(targetNumber([2, 7, 5, 4], 9));
 
 
 // – count occcerance each string;
-function occurrence(str){
+function occurrence(str) {
   let value = {};
-  for(let i = 0;i<str.length;i++){
-    
-    if ( value[str[i]]) continue;
+  for (let i = 0; i < str.length; i++) {
+
+    if (value[str[i]]) continue;
     let count = 1;
-    for(let j=i+1;j<str.length;j++){
-      if(str[i] == str[j]){
+    for (let j = i + 1; j < str.length; j++) {
+      if (str[i] == str[j]) {
         count++
       }
     }
     value[str[i]] = true;
-    console.log(str[i]+":"+count);
+    console.log(str[i] + ":" + count);
   }
 }
 
@@ -181,27 +181,27 @@ occurrence("banana");
 
 
 // Remove Duplicate from an array
-function duplicate(arr){
-  for(let i=0;i<arr.length;i++){
-    for(let j=i+1;j<arr.length;j++){
-      if(arr[i] == arr[j]){
-        arr.splice(j,1);
+function duplicate(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] == arr[j]) {
+        arr.splice(j, 1);
       }
     }
   }
   return arr;
 }
-console.log(duplicate([1,2,2,3,1,4,3]));
+console.log(duplicate([1, 2, 2, 3, 1, 4, 3]));
 
 
 
 // Find all duplicates in an array                
-function duplicateFind(arr){
+function duplicateFind(arr) {
   const result = [];
-  
-  for(let i= 0;i<arr.length;i++){
-    for(let j=i+1;j<arr.length;j++){
-      if(arr[i] == arr[j]){
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] == arr[j]) {
         result.push(arr[i])
       }
     }
@@ -211,14 +211,22 @@ function duplicateFind(arr){
 console.log(duplicateFind([4, 3, 2, 7, 8, 2, 3, 1]));
 
 
-// find Anagram
-function anagram(a,b){
-  if(a.length !== b.length) {return false};
-  let compare = {};
+// prime number for first 50 numbers (without inbuild )
+function prime(num1,num2) {
   
-  
+  for (let i = num1; i <= num2; i++) {
+    let count = 0;
+    for (let j = 2; j <= i / 2; j++) {
+      if (i % j == 0) { count++ }
+    }
+    if (count == 0) {
+      console.log(`${i} is prime`);
+       
+    }
+  }
 }
-console.log(anagram("silent","listen"));
+prime(11,50)
+
 
 
 
