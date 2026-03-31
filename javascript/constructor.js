@@ -1,9 +1,11 @@
-function User(name,age,email,phone){
-    this.name = name;
-    this.age = age;
-    this.email = email;
-    this.phone = phone;
-   
+class User {
+    constructor(name, age, email, phone) {
+        this.name = name;
+        this.age = age;
+        this.email = email;
+        this.phone = phone;
+
+    }
 }
  
 const user1 = new User("dhanraj",25,"dhan@gmail.com","23875296");
