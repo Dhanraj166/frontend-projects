@@ -1,73 +1,129 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <title>City Dropdown</title>
+    <meta charset="UTF-8">
+    <title>Simple Calculator</title>
+    
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #1e1e1e;
+            font-family: Arial, sans-serif;
+        }
+
+        .calculator {
+            background: #222;
+            padding: 20px;
+            border-radius: 12px;
+            width: 260px;
+        }
+
+        #display {
+            width: 100%;
+            height: 50px;
+            font-size: 22px;
+            text-align: right;
+            margin-bottom: 15px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        .btn {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        button {
+            height: 50px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #333;
+            color: #fff;
+        }
+
+        button:hover {
+            background: #444;
+        }
+
+        .equal {
+            background: #ff9500;
+            color: white;
+        }
+
+        .equal:hover {
+            background: #e08900;
+        }
+
+        .zero {
+            grid-column: span 2;
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="container">
-    <input type="text" id="cityInput" placeholder="Type city name..." />
-    <ul id="dropdown"></ul>
-    <button id="btn">Check Weather</button>
-    <h1 id="result"></h1>
-  </div>
+    <div class="calculator">
+        <input type="text" id="display" disabled />
 
-  <script>
-    const input = document.getElementById("cityInput");
-    const dropdown = document.getElementById("dropdown");
-    const btn = document.getElementById("btn");
-    const result = document.getElementById("result")
+        <div class="buttons">
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="appendValue('/')">÷</button>
+            <button onclick="appendValue('*')">×</button>
+            <button onclick="deleteLast()">⌫</button>
 
-    input.addEventListener("input", async () => {
-      const text = input.value.trim();
+            <button onclick="appendValue('7')">7</button>
+            <button onclick="appendValue('8')">8</button>
+            <button onclick="appendValue('9')">9</button>
+            <button onclick="appendValue('-')">−</button>
 
-      if (text.length === 0) {
-        dropdown.innerHTML = "";
-        return;
-      }
+            <button onclick="appendValue('4')">4</button>
+            <button onclick="appendValue('5')">5</button>
+            <button onclick="appendValue('6')">6</button>
+            <button onclick="appendValue('+')">+</button>
 
-      const url = `https://geocoding-api.open-meteo.com/v1/search?name=${text}&count=5&language=en&format=json`;
-      const res = await fetch(url);
-      const data = await res.json();
+            <button onclick="appendValue('1')">1</button>
+            <button onclick="appendValue('2')">2</button>
+            <button onclick="appendValue('3')">3</button>
+            <button class="equal" onclick="calculate()">=</button>
 
-      dropdown.innerHTML = "";
+            <button onclick="appendValue('0')" class="zero">0</button>
+            <button onclick="appendValue('.')">.</button>
+        </div>
+    </div>
 
-      if (!data.results) return;
+    <script>
+        const display = document.getElementById("display");
 
-      data.results.forEach(city => {
-        const li = document.createElement("li");
-        li.textContent = `${city.name}, ${city.country}`;
-
-        li.onclick = () => {
-          input.value = city.name;
-          dropdown.innerHTML = "";
-        };
-
-        dropdown.appendChild(li);3000
-      });
-    });
-    btn.addEventListener("click", () => {
-      const getUser = async () => {
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=Trichy&appid=e7ab4e259606ba503278e184ed755d98&units=metric`);
-
-        if (!response.ok) {
-          throw new Error("URL is Invallid")
+        function appendValue(value) {
+            display.value += value;
         }
-        const user = await response.json()
-        
 
-      }
-      
-      result.innerText=`${user.main.temp} C`
-    })
+        function clearDisplay() {
+            display.value = "";
+        }
 
+        function deleteLast() {
+            display.value = display.value.slice(0, -1);
+        }
 
-    console.log(`the city is: ${input.value}`);
-
-  </script>
-
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch {
+                display.value = "Error";
+            }
+        }
+    </script>
 </body>
 
-</html>
+</html> 
+
+
