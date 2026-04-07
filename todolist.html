@@ -184,8 +184,7 @@
       delBtn.innerText = "Delete";
       delBtn.className = "delete";
 
-      delBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
+      delBtn.addEventListener("click", () => {
         todos.splice(index, 1);
         saveTodos();
         renderTodos();
