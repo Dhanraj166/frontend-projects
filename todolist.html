@@ -1,241 +1,219 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advanced Todo</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo list</title>
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            /* background: linear-gradient(135deg, #667eea, #764ba2); */
-            /* background: linear-gradient(180deg, #3673d7 0%, #60EFFF 100%); */
-            /* background: linear-gradient(135deg, #d6a6a6 0%, #9aafd2 50%, #9a76a6 100%); */
-            background: radial-gradient(at top left, #9d61ba, transparent),
-                radial-gradient(at bottom right, #718777, #554f75);
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background:
+        radial-gradient(at top left, #9d61ba, transparent),
+        radial-gradient(at bottom right, #718777, #554f75);
+    }
 
-        .todo-box {
-            width: 520px;
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 16px;
-            box-shadow: 0 14px 100px rgba(0, 0, 0, 0.25);
-        }
+    .todo-box {
+      width: 520px;
+      background: #ffffff;
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 14px 100px rgba(0, 0, 0, 0.25);
+    }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #f97aff 0%, #7afff0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    h1 {
+      font-weight: 1200;
+      text-align: center;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #f97aff 0%, #7afff0 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-        .input-area {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 18px;
-        }
+    .input-area {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
 
-        #inputText {
-            flex: 1;
-            padding: 12px;
-            border-radius: 8px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-            outline: none;
-            border: none;
-            /* transition: border-color 0.2s; */
-            box-shadow: 0 5px 25px rgb(213, 215, 216);
-        }
+    #inputText {
+      flex: 1;
+      padding: 12px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+      outline: none;
+      box-shadow: 0 5px 25px rgb(213, 215, 216);
+    }
 
-        #inputText:hover {
-            /* border-color: #697ed8; */
-            transition: 0.8s;
-            box-shadow: 0 5px 25px rgb(137, 187, 222);
-        }
+    #inputText:hover {
+      box-shadow: 0 5px 25px rgb(137, 187, 222);
+    }
 
-        .add-btn {
-            padding: 12px 18px;
-            border-radius: 8px;
-            border: none;
-            background: #667eea;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
+    .add-btn {
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: none;
+      background: #667eea;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-        .add-btn:hover {
-            background: #5a6fdc;
-            box-shadow: 0 5px 25px rgb(137, 187, 222);
-        }
+    .add-btn:hover {
+      background: #5a6fdc;
+      box-shadow: 0 5px 25px rgb(137, 187, 222);
+    }
 
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-        li {
-            background: #f3f4f6;
-            border-radius: 10px;
-            padding: 12px 14px;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            cursor: pointer;
-            transition: background 0.2s, box-shadow 0.2s;
-        }
+    li {
+      background: #f3f4f6;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+    }
 
-        li:hover {
-            background: #f9f0f0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
+    li:hover {
+      background: #f9f0f0;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
 
-        li span {
-            flex: 1;
-            font-size: 15px;
-            color: #333;
-            word-break: break-word;
-        }
+    li span {
+      flex: 1;
+      font-size: 15px;
+      color: #333;
+      word-break: break-word;
+    }
 
-        li.done span {
-            text-decoration: line-through;
-            color: #9ca3af;
-        }
+    li.done span {
+      text-decoration: line-through;
+      color: #9ca3af;
+    }
 
-        .actions {
-            display: flex;
-            gap: 8px;
-        }
+    .actions {
+      display: flex;
+      gap: 8px;
+    }
 
-        .actions button {
-            border: none;
-            border-radius: 6px;
-            padding: 6px 10px;
-            font-size: 12px;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
+    .actions button {
+      border: none;
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 12px;
+      cursor: pointer;
+    }
 
-        .edit {
-            background: rgba(180, 255, 246, 0.644);
-            color: rgb(0, 144, 29);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
+    .delete {
+      background: rgba(255, 107, 138, 0.12);
+      color: #ff6b8a;
+    }
 
-        .edit:hover {
-            background: #7afff0;
-            color: black;
-        }
-
-        .delete {
-            background: rgba(255,107,138,0.12);
-            /* box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1); */
-            color: #ff6b8a;
-        }
-
-        .delete:hover {
-            background: #dc2626;
-            color: white;
-        }
-    </style>
+    .delete:hover {
+      background: #dc2626;
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="todo-box">
-        <h1>Todo List</h2>
+  <div class="todo-box">
+    <h1>Todo List</h1>
 
-            <div class="input-area">
-                <input id="inputText" type="text" placeholder="Enter your task" />
-                <button class="add-btn" id="btn">Add</button>
-            </div>
-
-            <ul id="list"></ul>
+    <div class="input-area">
+      <input id="inputText" type="text" placeholder="Enter your task" />
+      <button class="add-btn" id="btn">Add</button>
     </div>
 
-    <script>
-        const inputText = document.getElementById("inputText");
-        const btn = document.getElementById("btn");
-        const ul = document.getElementById("list");
+    <ul id="list"></ul>
+  </div>
+  <script>
+  const inputText = document.getElementById("inputText");
+  const btn = document.getElementById("btn");
+  const ul = document.getElementById("list");
 
-        btn.addEventListener("click", () => {
-            const value = inputText.value.trim();
-            if (value === "") return;
+  let todos = JSON.parse(localStorage.getItem("todos")) || [];
 
-            const li = document.createElement("li");
+  // save to localStorage
+  function saveTodos() {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }
 
-            // text
-            const span = document.createElement("span");
-            span.innerText = value;
+  // render todos
+  function renderTodos() {
+    ul.innerHTML = "";
 
-            // toggle complete
-            li.addEventListener("click", () => {
-                li.classList.toggle("done");
-            });
+    todos.forEach((todo, index) => {
+      const li = document.createElement("li");
+      if (todo.done) li.classList.add("done");
 
-            // actions container
-            const actions = document.createElement("div");
-            actions.className = "actions";
+      const span = document.createElement("span");
+      span.innerText = todo.text;
 
-            // EDIT button
-            const editBtn = document.createElement("button");
-            editBtn.innerText = "Edit";
-            editBtn.className = "edit";
+      li.addEventListener("click", () => {
+        todos[index].done = !todos[index].done;
+        saveTodos();
+        renderTodos();
+      });
 
-            editBtn.addEventListener("click", (e) => {
-                e.stopPropagation();
+      const actions = document.createElement("div");
+      actions.className = "actions";
 
-                if (editBtn.innerText === "Edit") {
-                    const input = document.createElement("input");
-                    input.type = "text";
-                    input.value = span.innerText;
+      const delBtn = document.createElement("button");
+      delBtn.innerText = "Delete";
+      delBtn.className = "delete";
 
-                    li.replaceChild(input, span);
-                    editBtn.innerText = "Save";
-                } else {
-                    const input = li.querySelector("input");
-                    span.innerText = input.value.trim() || span.innerText;
+      delBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        todos.splice(index, 1);
+        saveTodos();
+        renderTodos();
+      });
 
-                    li.replaceChild(span, input);
-                    editBtn.innerText = "Edit";
-                }
-            });
+      actions.appendChild(delBtn);
+      li.appendChild(span);
+      li.appendChild(actions);
+      ul.appendChild(li);
+    });
+  }
 
-            // DELETE button
-            const delBtn = document.createElement("button");
-            delBtn.innerText = "Delete";
-            delBtn.className = "delete";
+  // add new todo
+  btn.addEventListener("click", () => {
+    const value = inputText.value.trim();
+    if (value === "") return;
 
-            delBtn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                li.remove();
-            });
+    todos.push({ text: value, done: false });
+    saveTodos();
+    renderTodos();
+    inputText.value = "";
+  });
 
-            actions.appendChild(editBtn);
-            actions.appendChild(delBtn);
+  // load todos on page load
+  renderTodos();
+</script>
 
-            li.appendChild(span);
-            li.appendChild(actions);
-            ul.appendChild(li);
 
-            inputText.value = "";
-        });
-    </script>
 
 </body>
 
