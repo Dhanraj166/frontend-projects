@@ -15,10 +15,11 @@
     <div id="addcart">
         <img src="images/addCart.png" alt="cart">
         <span id="cartCount">0</span>
+        
     </div>
 
     <div class="container">
-        <div class="productDiv" id="productDiv"></div>
+        <div id="productDiv"></div>
     </div>
 
     <script>
@@ -26,9 +27,10 @@
         const cartCount = document.getElementById("cartCount");
         let count = 0;
 
-        fetch("https://fakestoreapi.com/products")
+        fetch("https://dummyjson.com/products?limit=100")
             .then(res => res.json())
-            .then(products => productCart(products));
+            .then(data => productCart(data.products))
+            .catch(err => console.error(err));
 
         function productCart(products) {
             products.forEach(product => {
@@ -36,14 +38,16 @@
                 card.className = "card";
 
                 const img = document.createElement("img");
-                img.src = product.image;
+                img.src = product.thumbnail; // always exists
+                img.alt = product.title;
 
                 const title = document.createElement("div");
                 title.className = "title";
                 title.innerText = product.title;
 
                 const price = document.createElement("h4");
-                price.innerText = `₹${Math.round(product.price * 90)}`;
+                
+                price.innerHTML = `<strong style="color: rgb(61, 61, 61);">Price :</strong>  ₹${Math.round(product.price * 90)}`;
 
                 const addcart = document.createElement("button");
                 addcart.innerText = "Add to Cart";

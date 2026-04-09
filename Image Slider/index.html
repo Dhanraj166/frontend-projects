@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        #images {
+            height: 500px;
+            width: 700px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        button {
+            font-size: 60px;
+            /* padding: 5px 15px; */
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;  
+            background-color: transparent;  
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <button id="beforeImg"><strong> < </strong></button>
+
+        <img id="images" src="" alt="slider image">
+
+        <button id="afterImg"><strong> > </strong></button>
+    </div>
+
+    <script>
+        const sliderImages = [
+            "images/1.jpg",
+            "images/2.jpg",
+            "images/3.jpg",
+            "images/4.jpg",
+            "images/5.jpg",
+            "images/6.jpg",
+            "images/7.jpg",
+            "images/8.jpg",
+            "images/9.jpg",
+            "images/10.jpg"
+        ];
+
+        const images = document.getElementById("images");
+        const beforeImg = document.getElementById("beforeImg");
+        const afterImg = document.getElementById("afterImg");
+
+        let count = 0;
+
+        images.src = sliderImages[count];
+
+        beforeImg.addEventListener("click", () => {
+            if (count === 0) {
+                count = sliderImages.length - 1;
+            } else {
+                count--
+            }
+            images.src = sliderImages[count];
+        })
+
+        afterImg.addEventListener("click", () => {
+            if (count === sliderImages.length - 1) {
+                count = 0;
+            } else {
+                count++
+            }
+            images.src = sliderImages[count];
+        })
+
+        setInterval(()=>{
+            count++
+            images.src = sliderImages[count]
+        },5000)
+    </script>
+</body>
+
+</html>
