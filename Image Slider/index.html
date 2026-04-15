@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Slider</title>
-
     <style>
         body {
             margin: 0;
@@ -13,90 +11,121 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background: #f0f0f0;
+            font-family: Arial, sans-serif;
         }
 
         .container {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
         }
 
         #images {
             height: 500px;
             width: 700px;
             object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            transition: background-color 1s ease-in-out;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.8s ease-in-out;
         }
 
-        button {    
-            font-size: 60px;
-            /* padding: 5px 15px; */
+        button {
+            font-size: 50px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
             border: none;
-            border-radius: 8px;
             background-color: transparent;
+            color: rgb(0, 0, 0);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            font-size: 100px;
+        }
+
+        /* button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+            transform: scale(1.1);
+        } */
+
+        .fade {
+            opacity: 0;
         }
     </style>
 </head>
-
 <body>
 
-    <div class="container">
-        <button id="beforeImg"><strong>
-                < </strong></button>
+<div class="container">
+    <button id="beforeImg">‹</button>
+    <img id="images" src="" alt="Slider Image">
+    <button id="afterImg">›</button>
+</div>
 
-        <img id="images" src="" alt="slider image">
+<script>
+    const sliderImages = [
+        "images/1.jpg",
+        "images/2.jpg",
+        "images/3.jpg",
+        "images/4.jpg",
+        "images/5.jpg",
+        "images/6.jpg",
+        "images/7.jpg",
+        "images/8.jpg",
+        "images/9.jpg",
+        "images/10.jpg"
+    ];
 
-        <button id="afterImg"><strong> > </strong></button>
-    </div>
+    const images = document.getElementById("images");
+    const beforeBtn = document.getElementById("beforeImg");
+    const afterBtn = document.getElementById("afterImg");
 
-    <script>
-        const sliderImages = [
-            "images/1.jpg",
-            "images/2.jpg",
-            "images/3.jpg",
-            "images/4.jpg",
-            "images/5.jpg",
-            "images/6.jpg",
-            "images/7.jpg",
-            "images/8.jpg",
-            "images/9.jpg",
-            "images/10.jpg"
-        ];
+    let count = 0;
 
-        const images = document.getElementById("images");
-        const beforeImg = document.getElementById("beforeImg");
-        const afterImg = document.getElementById("afterImg");
-
-        let count = 0;
-
-        images.src = sliderImages[count];
-
-        beforeImg.addEventListener("click", () => {
-            if (count === 0) {
-                count = sliderImages.length - 1;
-            } else {
-                count--
-            }
+    // Function to change image with fade effect
+    function changeImage() {
+        images.classList.add('fade');
+        
+        setTimeout(() => {
             images.src = sliderImages[count];
-        })
+            images.classList.remove('fade');
+        }, 400); 
+    }
 
-        afterImg.addEventListener("click", () => {
-            if (count === sliderImages.length - 1) {
-                count = 0;
-            } else {
-                count++
-            }
-            images.src = sliderImages[count];
-        })
+    // Next Image
+    function nextImage() {
+        count = (count + 1) % sliderImages.length;
+        changeImage();
+    }
 
-        setInterval(() => {
-            count++
-            images.src = sliderImages[count]
-        }, 5000)
-    </script>
+    // Previous Image
+    function prevImage() {
+        count = (count - 1 + sliderImages.length) % sliderImages.length;
+        changeImage();
+    }
+
+    // Button Events
+    beforeBtn.addEventListener("click", prevImage);
+    afterBtn.addEventListener("click", nextImage);
+
+    // Auto slide every 5 seconds
+    let autoSlide = setInterval(nextImage, 5000);
+
+    // Pause auto-slide on hover
+    const container = document.querySelector('.container');
+    container.addEventListener('mouseenter', () => {
+        clearInterval(autoSlide);
+    });
+
+    container.addEventListener('mouseleave', () => {
+        autoSlide = setInterval(nextImage, 5000);
+    });
+
+    // Initialize first image
+    images.src = sliderImages[count];
+</script>
+
 </body>
-
 </html>
