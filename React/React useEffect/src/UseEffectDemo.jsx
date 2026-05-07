@@ -3,15 +3,15 @@ import { useEffect, useState } from "react";
 function UseEffectDemo() {
     const [count, setCount] = useState(0)
     const [name, setName] = useState("")
-    // useEffect(() => {
-    //     if(count % 2 == 0){
-    //         console.log("number is Even");
+    useEffect(() => {
+        // if(count % 2 == 0){
+        //     console.log("number is Even");
 
-    //     }
-    //     // console.log("Compount Mounted");
-    //     // console.log("Count",count);
-    //     // console.log("Name",name);  
-    // }, [count])
+        // }
+        console.log("Compount Mounted");
+        console.log("Count",count);
+        // console.log("Name",name);  
+    }, [count])
     // useEffect(() => {
     //     const getData = async () => {
     //         const res = await fetch('https://jsonplaceholder.typicode.com/todos/1')
@@ -23,17 +23,17 @@ function UseEffectDemo() {
     // function setUser(data) {
     //     console.log(data);
     // }
-    useEffect(() => {
-        const timer = setInterval(() => {
-            setSeconds(prev => prev + 1);
-        }, 1000);
+    // useEffect(() => {
+    //     const timer = setInterval(() => {
+    //         setSeconds(prev => prev + 1);
+    //     }, 1000);
 
-        // Cleanup
-        return () => {
-            clearInterval(timer);
-            console.log("Timer cleaned up");
-        };
-    }, []);
+    //     // Cleanup
+    //     return () => {
+    //         clearInterval(timer);
+    //         console.log("Timer cleaned up");
+    //     };
+    // }, []);
 
     return (
         <>

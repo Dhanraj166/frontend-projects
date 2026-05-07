@@ -9,7 +9,6 @@ import Form from './MultipleForm.jsx'
 import Skills from './Checkbox.jsx'
 import ColorChanger from './ColorChange.jsx'
 import LikeButton from './Like.jsx'
-import UseEffectDemo from './UseEffectDemo.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -21,7 +20,7 @@ createRoot(document.getElementById('root')).render(
     {/* <Form /> */}
     {/* <Skills /> */}
     {/* <ColorChanger /> */}
-    {/* <LikeButton /> */}
-    <UseEffectDemo/>
+    <LikeButton />
+    
   </StrictMode>
 )
