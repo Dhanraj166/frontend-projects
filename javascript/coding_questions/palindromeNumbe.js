@@ -9,6 +9,6 @@ function palindrome(x){
     }
     return x===rev || x === (Math.floor(rev/10))
 }
-console.log(palindrome(121));
-console.log(palindrome(1221));
+// console.log(palindrome(121));
+// console.log(palindrome(1221));
 console.log(palindrome(-121));
