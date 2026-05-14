@@ -8,10 +8,11 @@ function UseEffectDemo() {
         //     console.log("number is Even");
 
         // }
-        console.log("Compount Mounted");
-        console.log("Count",count);
+        console.log("Hello");
+        
         // console.log("Name",name);  
     }, [count])
+    console.log("hiii");
     // useEffect(() => {
     //     const getData = async () => {
     //         const res = await fetch('https://jsonplaceholder.typicode.com/todos/1')

@@ -1,4 +1,4 @@
-// whether any value appears at least twice in the array.
+// whether any value appears at least twice in the array return true.
 // if the array has Unique value return false 
 
 function containsDuplicate(nums) {
