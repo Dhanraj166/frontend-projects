@@ -1,26 +1,10 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import Inputvalue from './Inputvalue.jsx'
-import Show from './Show.jsx'
-import Character from './Character.jsx'
-import Form from './MultipleForm.jsx'
-import Skills from './Checkbox.jsx'
-import ColorChanger from './ColorChange.jsx'
-import LikeButton from './Like.jsx'
+import { createRoot } from "react-dom/client";
+import { Provider } from "react-redux";
+import store from "./store.js";
+import Counter from "./Counter.jsx";
 
-
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    {/* <App /> */}
-    {/* <Inputvalue /> */}
-    {/* <Show /> */}
-    {/* <Character /> */}
-    {/* <Form /> */}
-    {/* <Skills /> */}
-    {/* <ColorChanger /> */}
-    <LikeButton />
-    
-  </StrictMode>
+createRoot(document.getElementById("root")).render(
+  <Provider store={store}>
+    <Counter />
+  </Provider>,
 )
